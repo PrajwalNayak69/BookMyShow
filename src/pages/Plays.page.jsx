@@ -1,6 +1,6 @@
 import React from 'react';
 import HeroCarousel from '../components/HeroCarousel/HeroCarousel.component';
-import Filter from '../components/plays/Fliter/Filter.component';
+import Filter from '../components/plays/Filter/Filter.component.jsx';
 import Poster from '../components/Poster/Poster.component';
 
 

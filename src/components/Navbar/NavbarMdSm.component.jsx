@@ -1,38 +1,25 @@
-import React from "react";
-import { BiChevronRight, BiSearch } from "react-icons/bi";
+import React,{useContext} from "react";
+import { BiSearch, BiShareAlt } from "react-icons/bi";
 import { GiHamburgerMenu} from "react-icons/gi";
 import { FiChevronDown} from "react-icons/fi";
+import { MovieContext } from "../../context/movie.context";
 
 
 
-const NavSm =() =>{
+const NavMdSm =() =>{
+
+    const {movie} = useContext(MovieContext);
+
     return <>
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center ">
         <div className="flex-col justify-around px-3 py-2">
-            <h3 className="font-bold text-2xl">
-                It All Starts Here!
+            <h3 className=" text-md">
+                {movie.original_title}
             </h3>
-            <div className="flex text-xs items-center gap-1 ">
-            <span>Udupi</span>
-            <div>
-                <BiChevronRight/>
-            </div>
-            </div>
         </div>
         <div className="text-2xl px-3">
-            <BiSearch/>
+            <BiShareAlt/>
         </div>
-    </div>
-    </>
-}
-const NavMd =() =>{
-    return <>
-    <div className="bg-white my-3 w-11/12 mx-8 rounded py-1">
-    <div className="flex w-full items-center gap-3 ">
-        <BiSearch style={{color:"black"}} className="mx-3"/>
-        <input  className="w-11/12 focus:outline-none bg-transparent"type="search" placeholder="Movie, Event and Shows near you"/>
-
-    </div>
     </div>
     </>
 }
@@ -58,33 +45,30 @@ const NavLg =() =>{
             </div>
         </div>
 
-        <div className="flex gap-8 items-center mx-90">
+        <div className="flex gap-8 items-center mx-36">
 
             <div className="flex text-xs items-center gap-1 ">
-            <span className="text-lg text-gray-200 hover:text-white cursor-pointer">Udupi</span>
+            <span className="text-lg text-gray-200 hover:text-white cursor-pointer">NCR</span>
             <div>
                 <FiChevronDown className="text-md"/>
             </div>
             </div>
 
             
-            <div><button className="bg-red-500 text-sm rounded px-3 py-1 text-md">Sign in</button></div>
+            <button className="bg-red-500 text-sm rounded px-3 py-1 text-md">Sign in</button>
             <GiHamburgerMenu className="text-2xl"/>
         </div>
     </div>
     </>
 }
 
-const Navbar = () =>{
+const NavbarMdSm = () =>{
     return(<>
-        <nav className="bg-gray-800 text-white w-full">
-            <div className="md:hidden">
-              <NavSm />
+        <nav className=" text-white w-full absolute inset-x-0 z-30 bg-opacity-10 backdrop-filter backdrop-blur-lg lg:relative lg:bg-gray-800">
+            <div className=" absolute inset-x-0 z-30 w-full lg:hidden">
+              <NavMdSm />
             </div>
 
-            <div className="hidden md:flex lg:hidden">
-            <NavMd />
-            </div>
             <div className="hidden lg:flex w-full">
             <NavLg />
             </div>
@@ -93,4 +77,5 @@ const Navbar = () =>{
     </>);
 };
 
-export default Navbar;
+export default NavbarMdSm;
+

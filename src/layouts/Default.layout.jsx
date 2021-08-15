@@ -1,5 +1,5 @@
 import React from "react";
-import HeroCarousal from "../components/HerocCarousal/HeroCarousal.component";
+import HeroCarousal from "../components/HeroCarousel/HeroCarousel.component";
 
 import Navbar from "../components/Navbar/Navbar.component";
 
