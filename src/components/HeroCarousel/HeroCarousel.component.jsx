@@ -54,10 +54,10 @@ const HeroCarousel = () => {
   return(
     <>
 
-      <div class= "lg:hidden">
+      <div className= "lg:hidden">
       <HeroSlider {...settings}>  
         {images.map((image) => (
-          <div className="w-full h-64 md:h-96 py-3">
+          <div className="w-full h-56 md:h-80 py-3">
             <img src={`https://image.tmdb.org/t/p/original/${image.backdrop_path}`} alt="testing" className="w-full h-full rounded-md" />
           </div>
         ))}

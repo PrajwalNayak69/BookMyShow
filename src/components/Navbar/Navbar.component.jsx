@@ -58,7 +58,7 @@ const NavLg =() =>{
             </div>
         </div>
 
-        <div className="flex gap-8 items-center mx-90">
+        <div className="flex gap-8 items-center mx-36">
 
             <div className="flex text-xs items-center gap-1 ">
             <span className="text-lg text-gray-200 hover:text-white cursor-pointer">Udupi</span>
@@ -68,7 +68,9 @@ const NavLg =() =>{
             </div>
 
             
-            <div><button className="bg-red-500 text-sm rounded px-3 py-1 text-md">Sign in</button></div>
+            <button className="bg-red-600 text-white px-2 py-1 text-sm rounded">
+            Sign in
+          </button>
             <GiHamburgerMenu className="text-2xl"/>
         </div>
     </div>

@@ -2,7 +2,7 @@ import React,{useContext} from 'react';
 import { MovieContext } from '../../context/movie.context';
 //info
 import MovieHeroInfo from './MovieHeroInfo.component';
-
+// mobile
 const HeroSm=()=>{
 
     const {movie}  = useContext(MovieContext);
@@ -19,7 +19,7 @@ const HeroSm=()=>{
     </>);
 
 }
-
+// medium
 const HeroMd=()=>{
     const {movie}  = useContext(MovieContext);
 return(<>
