@@ -6,7 +6,7 @@ import EntertainmentCardSlider from "../components/Entertainment/EntertainmentCa
 import PosterSlider from "../components/PosterSlider/PosterSlider.component";
 
 // config
-import TempPosters from "../Config/TempPoster.config"
+import TempPosters from "../Config/TempPoster.config";
 
 const HomePage = () => {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -63,7 +63,7 @@ const HomePage = () => {
               images={popularMovies}
               title="Premieres"
               subtitle="Brand new relases every friday"
-              
+              isDark
             />
           </div>
         </div>
