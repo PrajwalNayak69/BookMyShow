@@ -6,7 +6,7 @@ import EntertainmentCardSlider from "../components/Entertainment/EntertainmentCa
 import PosterSlider from "../components/PosterSlider/PosterSlider.component";
 
 // config
-// import TempPosters from "../config/TempPosters.config";
+import TempPosters from "../Config/TempPoster.config"
 
 const HomePage = () => {
   const [popularMovies, setPopularMovies] = useState([]);
