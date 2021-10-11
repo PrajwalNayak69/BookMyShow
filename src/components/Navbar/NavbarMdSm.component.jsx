@@ -48,7 +48,7 @@ const NavLg =() =>{
         <div className="flex gap-8 items-center mx-36">
 
             <div className="flex text-xs items-center gap-1 ">
-            <span className="text-lg text-gray-200 hover:text-white cursor-pointer">NCR</span>
+            <span className="text-lg text-gray-200 hover:text-white cursor-pointer">Udupi</span>
             <div>
                 <FiChevronDown className="text-md"/>
             </div>

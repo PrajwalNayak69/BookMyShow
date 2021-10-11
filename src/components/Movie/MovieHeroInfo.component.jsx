@@ -1,65 +1,74 @@
-import React,{useContext, useState} from 'react';
-import { MovieContext } from '../../context/movie.context';
-import PaymentModal from '../paymentModal/payment.component';
+import React, { useContext, useState } from "react";
 
+// components
+import PaymentModal from "../paymentModal/payment.component";
 
+// Context
+import { MovieContext } from "../../context/movie.context";
 
+const MovieInfo = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [price, setPrice] = useState(0);
 
-const MovieHeroInfo = () => {
+  const { movie } = useContext(MovieContext);
 
-    const {movie}= useContext(MovieContext);
+  // optional chaining.
+  const genres = movie.genres?.map(({ name }) => name).join(", ");
 
-    const [isOpen, setOpen]= useState(false);
-    const [price, setprice]= useState(false);
+  const rentMovies = () => {
+    setIsOpen(true);
+    setPrice(149);
+  };
 
-    const RentMovie =()=>{
-        setOpen(true);
-        setprice(149);
-    }
-    const BuyMovie =()=>{
-        setOpen(true);
-        setprice(689);
-    }
+  const buyMovies = () => {
+    setIsOpen(true);
+    setPrice(599);
+  };
 
-    //optional chaining
-    const genres = movie.genres?.map(({name})=>name).join(", ");
-
-    return (
-        <>
-        <PaymentModal isOpen={isOpen} setIsOpen={setOpen} price={price}/>
-        <div className="flex flex-col gap-4 lg:gap-8">
-            <div>
-                <div className="flex gap-4 text-sm">
-                    <img src="https://in.bmscdn.com/moviemode/tvod/premiere-tag.png" alt="premier"
-                    className="h-4 lg:h-6" />
-                    <span className="text-white bg-prachi-800 rounded-2xl px-2 text-xs lg:text-sm">
-                        Streaming Now
-                    </span>
-                </div>
-
-            </div>
-            <h1 className="hidden lg:block text-white text-4xl font-bold"> {movie.original_title}</h1>
-            <div className="flex flex-col-reverse gap-2 lg:gap-8 lg:flex-col">
-            <div className="text-xs text-white flex flex-col gap-2 lg:gap-4 md:text-base lg:text-lg">
-                <h3>
-                {movie.original_language}&bull; Languages: Audio(1), Subtitles(1)
-                </h3>
-                <h3>
-                {movie.runtime} mins&bull; {genres} &bull;16+ &bull; {movie.release_date}
-                </h3>
-                <p className="text-xs text-white lg:hidden">{movie.overview}</p>
-            </div>
-            <div className="flex gap-1 lg:gap-4">
-                <button onClick={RentMovie} className="bg-red-600 rounded-md text-white w-1/2 font-bold py-1 md:py-2 lg:py-4 lg:rounded-xl ">Rent ₹149</button>
-                <button onClick={BuyMovie} className="bg-red-600 rounded-md text-white w-1/2 font-bold py-1 md:py-2 lg:py-4 lg:rounded-xl">Rent ₹689</button>
-                
-            </div>
-            </div>
+  return (
+    <>
+      <PaymentModal setIsOpen={setIsOpen} isOpen={isOpen} price={price} />
+      <div className="flex flex-col gap-3 lg:gap-8">
+        <div className="flex items-center gap-3 md:px-4">
+          <div className="w-40 h-8">
+            <img
+              src="https://in.bmscdn.com/moviemode/tvod/premiere-tag.png"
+              alt="premier"
+              className="w-full h-full"
+            />
+          </div>
+          <span className="bg-bms-700 p-1 text-xs text-white rounded-md">
+            Streaming now
+          </span>
         </div>
-            
-        </>
-    )
-}
+        <h1 className="text-white lg:text-5xl font-bold hidden lg:block ">
+          {movie.original_title}
+        </h1>
+        <div className="flex flex-col-reverse gap-3 lg:gap-5 lg:flex-col">
+          <div className="text-white font-light flex flex-col gap-2 md:px-4">
+            <h4>4k &bull; {movie.original_language}</h4>
+            <h4>
+              {(movie.runtime / 60).toFixed(2)} h &bull; {genres} &bull; 13+
+            </h4>
+          </div>
+          <div className="flex items-center gap-3 md:px-4 md:w-screen lg:w-full">
+            <button
+              onClick={rentMovies}
+              className="bg-red-600 w-full py-3 text-white font-semibold rounded-lg"
+            >
+              Rent ₹149
+            </button>
+            <button
+              onClick={buyMovies}
+              className="bg-red-600 w-full py-3 text-white font-semibold rounded-lg"
+            >
+              Buy ₹599
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
-
-export default MovieHeroInfo;
+export default MovieInfo;
